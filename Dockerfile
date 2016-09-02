@@ -7,6 +7,7 @@ RUN apt-get update &&\
     apt-get install -y git-core subversion wget bzip2 unzip \
                        gcc g++ make ccache zlib1g-dev \
                        python gawk sudo groff-base &&\
+    apt-get remove -y openssh-client manpages manpages-dev krb5-locales &&\
     apt-get clean &&\
     useradd -m openwrt &&\
     echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt &&\
