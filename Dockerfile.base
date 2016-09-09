@@ -1,0 +1,9 @@
+FROM ubuntu:xenial
+
+RUN apt-get update &&\
+    apt-get install -y git-core subversion wget bzip2 unzip \
+                       gcc g++ make ccache \
+                       python gawk sudo groff-base &&\
+    apt-get clean &&\
+    useradd -m openwrt &&\
+    echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt

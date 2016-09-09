@@ -1,0 +1,22 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  - TAGS="15.05.01-ar71xx lede-ar71xx"
+
+before_install:
+  docker version
+  docker build -t yhnw/openwrt-sdk:base -f Dockerfile.base .
+
+script:
+  for TAG in $TAGS; do
+    docker build -t yhnw/openwrt-sdk:$TAG -f Dockerfile.$TAG .;
+  done
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push USER/REPO;
+    fi

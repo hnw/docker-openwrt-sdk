@@ -1,0 +1,12 @@
+FROM yhnw/openwrt-sdk:base
+
+ENV SDK_URL "http://downloads.lede-project.org/snapshots/targets/ar71xx/generic/lede-sdk-ar71xx-generic_gcc-5.4.0_musl-1.1.15.Linux-x86_64.tar.bz2"
+ENV SDK_SUFFIX .tar.bz2
+
+RUN sudo -iu openwrt wget $SDK_URL &&\
+    sudo -iu openwrt tar xjf "$(basename $SDK_URL)" &&\
+    sudo -iu openwrt rm "$(basename $SDK_URL)" &&\
+    sudo -iu openwrt mv "$(basename $SDK_URL $SDK_SUFFIX)" sdk &&\
+    sudo -iu openwrt sdk/scripts/feeds update -a &&\
+    sudo -iu openwrt ln -s ../feeds/base/package/utils sdk/package/utils
+# see: https://dev.openwrt.org/ticket/18552
