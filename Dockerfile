@@ -5,8 +5,10 @@ ENV SDK_SUFFIX .tar.bz2
 
 RUN apt-get update &&\
     apt-get install -y git-core subversion wget bzip2 unzip \
-                       gcc g++ make ccache \
+                       gcc g++ make ccache libncurses5-dev zlib1g-dev \
                        python gawk sudo groff-base &&\
+    apt-get remove -y openssh-client manpages manpages-dev krb5-locales locales &&\
+    apt-get -y autoremove &&\
     apt-get clean &&\
     useradd -m openwrt &&\
     echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt &&\
