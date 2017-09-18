@@ -4,7 +4,7 @@ ENV SDK_URL "https://downloads.openwrt.org/chaos_calmer/15.05.1/ar71xx/generic/O
 ENV SDK_SUFFIX .tar.bz2
 
 RUN sudo -iu openwrt wget $SDK_URL &&\
-    sudo -iu openwrt tar xjf "$(basename $SDK_URL)" &&\
+    sudo -iu openwrt tar xf "$(basename $SDK_URL)" &&\
     sudo -iu openwrt rm "$(basename $SDK_URL)" &&\
     sudo -iu openwrt mv "$(basename $SDK_URL $SDK_SUFFIX)" sdk &&\
     sudo -iu openwrt sdk/scripts/feeds update -a &&\
