@@ -1,4 +1,5 @@
 FROM ubuntu:xenial
+COPY build-go-1.8-mips-softfloat.sh /tmp/
 
 RUN apt-get update &&\
     apt-get install -y git-core subversion wget bzip2 xz-utils unzip \
@@ -8,4 +9,6 @@ RUN apt-get update &&\
     apt-get -y autoremove &&\
     apt-get clean &&\
     useradd -m openwrt &&\
-    echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt
+    echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt &&\
+    sudo -iu openwrt bash /tmp/build-go-1.8-mips-softfloat.sh &&\
+    rm /tmp/build-go-1.8-mips-softfloat.sh
