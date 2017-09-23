@@ -4,7 +4,7 @@ COPY build-go-1.8-mips-softfloat.sh /tmp/
 RUN apt-get update &&\
     apt-get install -y git-core subversion wget bzip2 xz-utils unzip \
                        gcc g++ make ccache libncurses5-dev zlib1g-dev \
-                       python gawk sudo groff-base &&\
+                       python gawk sudo groff-base upx-ucl &&\
     apt-get remove -y openssh-client manpages manpages-dev krb5-locales locales &&\
     apt-get -y autoremove &&\
     apt-get clean &&\
