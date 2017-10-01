@@ -1,0 +1,13 @@
+FROM yhnw/openwrt-sdk:base
+
+ENV SDK_URL "https://downloads.lede-project.org/releases/17.01.2/targets/ramips/mt7620/lede-sdk-17.01.2-ramips-mt7620_gcc-5.4.0_musl-1.1.16.Linux-x86_64.tar.xz"
+
+ENV SDK_SUFFIX .tar.xz
+
+RUN sudo -iu openwrt wget -nv $SDK_URL &&\
+    sudo -iu openwrt tar xf "$(basename $SDK_URL)" &&\
+    sudo -iu openwrt rm "$(basename $SDK_URL)" &&\
+    sudo -iu openwrt mv "$(basename $SDK_URL $SDK_SUFFIX)" sdk &&\
+    sudo -iu openwrt sdk/scripts/feeds update -a &&\
+    sudo -iu openwrt ln -s ../feeds/base/package/utils sdk/package/utils
+# see: https://dev.openwrt.org/ticket/18552
