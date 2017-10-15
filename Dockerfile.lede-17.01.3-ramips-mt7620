@@ -1,6 +1,6 @@
 FROM yhnw/openwrt-sdk:base
 
-ENV SDK_URL "https://downloads.lede-project.org/releases/17.01.2/targets/ramips/mt7620/lede-sdk-17.01.2-ramips-mt7620_gcc-5.4.0_musl-1.1.16.Linux-x86_64.tar.xz"
+ENV SDK_URL "https://downloads.lede-project.org/releases/17.01.3/targets/ramips/mt7620/lede-sdk-17.01.3-ramips-mt7620_gcc-5.4.0_musl-1.1.16.Linux-x86_64.tar.xz"
 
 ENV SDK_SUFFIX .tar.xz
 
