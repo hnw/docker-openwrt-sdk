@@ -8,7 +8,7 @@ This is a docker container for the [OpenWRT](https://openwrt.org/) / [LEDE](http
 To run a shell as `openwrt` user in the SDK container, execute the following command:
 
 ```sh
-$ docker run -i -t -u openwrt -w /home/openwrt/sdk -v $PWD:/work yhnw/openwrt-sdk:lede-17.01.2-ar71xx /bin/bash
+$ docker run -i -t -u openwrt -w /home/openwrt/sdk -v $PWD:/work yhnw/openwrt-sdk:17.01-ar71xx /bin/bash
 ```
 
 Then you can build packages as follows:

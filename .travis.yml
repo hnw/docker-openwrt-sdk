@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    - TAGS="openwrt-15.05.1-ar71xx lede-17.01.3-ar71xx lede-17.01.3-ramips-mt7620 lede-17.01.3-bcm53xx"
+    - TAGS="15.05.1-ar71xx 17.01-ar71xx 17.01-ramips-mt7620 17.01-bcm53xx"
     - USER=yhnw
     - REPO=openwrt-sdk
     - secure: cSEGjjxSwEKruN21wCzxKqTD/C2xkV0Hz7QBowfesTFkEGouB4+892vZETrHYdGWVEEWTyW0TR8op3k7rq6MzU4hMpa8kBq0aD4m7IfsPN6t9HWNCsVx3Zn4zTPkhBjfYZGAzNBHKdCxl5bjEez8Mnugr/HW1GuxQzHTQx8DpTHk3jKtd5h0+dopLSv2IeL5Z9t5o1MtwhkwZXPV56qubG0sgZCHCSps100TedjdA6qYb3f0ejLBN7NlEOrsdxK9rZUCBvqH38V8BNcyyKLZLZuv9IPnU4A54ri4jepJ8gMvo8w72Jm7f1+PelQmT3UrNTHQsB9tL58zI+wWyYsjje0Fer5bgTKtPsEHdylP3eZkW/b/aR+O+ChvLqx8mpp4SEQp+30SNwx3QIC4rlrX8I4QuZ3exRxtW4AE73aYcQN/WfXMSmnS3heq3Ws/3a3viprFH7y0XLKhh2UyFYgWYotphCW+av4p6xXRUbN4A68Jjv11ciiGlVQTYKhniKlMwjnkRVWXhzxVT7CYK6BAfTLZHK7rqQ7mECV4v0tOquIBbW8dud6+HG4TylwseLA83lK2QwQOBfFnFQpcuZtG3WuFJq6FK/YN9r8GpGnRnZF9kO+FK6qBrXIDeR+b0mY08QmtoV2ne6HxjSQ/4Zes4B3wY4U63Ittv2a6RdPUcPk=

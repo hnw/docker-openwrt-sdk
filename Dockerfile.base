@@ -12,3 +12,4 @@ RUN apt-get update &&\
     echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt &&\
     sudo -iu openwrt bash /tmp/build-go-1.8-mips-softfloat.sh &&\
     rm /tmp/build-go-1.8-mips-softfloat.sh
+ENV PATH /home/openwrt/go1.8.3-mips32-softfloat-patch/bin:/home/openwrt/sdk/staging_dir/host/bin:$PATH
