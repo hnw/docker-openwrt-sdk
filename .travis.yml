@@ -6,21 +6,22 @@ services:
 env:
   global:
     - TAGS="15.05.1-ar71xx 17.01-ar71xx 17.01-ramips-mt7620 17.01-bcm53xx"
-    - USER=yhnw
-    - REPO=openwrt-sdk
-    - secure: cSEGjjxSwEKruN21wCzxKqTD/C2xkV0Hz7QBowfesTFkEGouB4+892vZETrHYdGWVEEWTyW0TR8op3k7rq6MzU4hMpa8kBq0aD4m7IfsPN6t9HWNCsVx3Zn4zTPkhBjfYZGAzNBHKdCxl5bjEez8Mnugr/HW1GuxQzHTQx8DpTHk3jKtd5h0+dopLSv2IeL5Z9t5o1MtwhkwZXPV56qubG0sgZCHCSps100TedjdA6qYb3f0ejLBN7NlEOrsdxK9rZUCBvqH38V8BNcyyKLZLZuv9IPnU4A54ri4jepJ8gMvo8w72Jm7f1+PelQmT3UrNTHQsB9tL58zI+wWyYsjje0Fer5bgTKtPsEHdylP3eZkW/b/aR+O+ChvLqx8mpp4SEQp+30SNwx3QIC4rlrX8I4QuZ3exRxtW4AE73aYcQN/WfXMSmnS3heq3Ws/3a3viprFH7y0XLKhh2UyFYgWYotphCW+av4p6xXRUbN4A68Jjv11ciiGlVQTYKhniKlMwjnkRVWXhzxVT7CYK6BAfTLZHK7rqQ7mECV4v0tOquIBbW8dud6+HG4TylwseLA83lK2QwQOBfFnFQpcuZtG3WuFJq6FK/YN9r8GpGnRnZF9kO+FK6qBrXIDeR+b0mY08QmtoV2ne6HxjSQ/4Zes4B3wY4U63Ittv2a6RdPUcPk=
+    - DOCKERHUB_USER=yhnw
+    - DOCKERHUB_REPO=openwrt-sdk
+    - secure: "eQ3jV1fZlL7pa/ihyEWSJNEJYuFS61M3OIFToFfD4OIxHHS3kjVitYYH2Jd+fMeu5rbRyd4PDHHI0LqkQpwsIX1uLrY0vN/LGfV83lae8bMQLdH+gAfdFXW6uh+sl9KQwwdb0IH20SYHiw71Ya9OAdq/VXtI5s+PROeLfow6i2GuhQjMHCclgmmbLL2H/wzKMogfYBLzIegii8tGkaM37LtSlRtPu7gRJYSdYX9WVLSAobx5RweMtPWHwrUyk7hEX/wm8GEbTt6QbkM+TB6082fDq+GYO/Xyq7o3YB2/nhRYtYCITuj8pEh779QClJGGvtMCoaT5SY9uqNByjUTVH/QRjvpDiDo+48rmU+B748t4ilrjfxQZytrtHy8Yz5f6XRcmrbiZ2jlYI3abDFiBxQYIQvz90y0+q6XtFN/+h1HIDBK4bua6Ry78KyzALC5Mb8RYXkerb0FpHT1Qoxl60hD0KTo/MVgLpq6Evmir4BcxK0SzjDl1XQWOiN08td9R4bB0AdAimvydUmKXwZ36edowdEoP7ReKrJh6oWh75KWuAGPGDXibOyJWmq1ibpiik5AwrH7iLsWpr5jSs6cye7H99VtX6PiMIQJmjFNvCN9vyjzvJLGFzCzyGvKkQfoxtV/RxYfgCyl3hjVsXZ/Pv7ZD1mSznIEzz+ZRUDCj8og="
+
 
 before_install:
   - docker version
-  - docker build -t $USER/$REPO:base -f Dockerfile.base .
+  - docker build -t $DOCKERHUB_USER/$DOCKERHUB_REPO:base -f Dockerfile.base .
 
 script:
   - for TAG in $TAGS; do
-      docker build -t $USER/$REPO:$TAG -f Dockerfile.$TAG .;
+      docker build -t $DOCKERHUB_USER/$DOCKERHUB_REPO:$TAG -f Dockerfile.$TAG .;
     done
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker login -u=$USER -p=$DOCKER_PASSWORD &&
-      docker push $USER/$REPO ;
+      docker login -u=$DOCKERHUB_USER -p=$DOCKERHUB_PASSWORD &&
+      docker push $DOCKER_USER/$DOCKERHUB_REPO ;
     fi
