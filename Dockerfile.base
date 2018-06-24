@@ -10,5 +10,8 @@ RUN apt-get update &&\
     apt-get -y autoremove &&\
     apt-get clean &&\
     useradd -m openwrt &&\
+    mkdir /go &&\
+    chown openwrt /go &&\
     echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt
 ENV PATH /usr/lib/go-1.10/bin:/home/openwrt/sdk/staging_dir/host/bin:$PATH
+ENV GOPATH /go

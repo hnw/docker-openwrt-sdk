@@ -8,7 +8,7 @@ env:
     - TAGS="15.05.1-ar71xx 17.01-ar71xx 17.01-ramips-mt7620 17.01-bcm53xx"
     - DOCKERHUB_USER=yhnw
     - DOCKERHUB_REPO=openwrt-sdk
-    - secure: "eQ3jV1fZlL7pa/ihyEWSJNEJYuFS61M3OIFToFfD4OIxHHS3kjVitYYH2Jd+fMeu5rbRyd4PDHHI0LqkQpwsIX1uLrY0vN/LGfV83lae8bMQLdH+gAfdFXW6uh+sl9KQwwdb0IH20SYHiw71Ya9OAdq/VXtI5s+PROeLfow6i2GuhQjMHCclgmmbLL2H/wzKMogfYBLzIegii8tGkaM37LtSlRtPu7gRJYSdYX9WVLSAobx5RweMtPWHwrUyk7hEX/wm8GEbTt6QbkM+TB6082fDq+GYO/Xyq7o3YB2/nhRYtYCITuj8pEh779QClJGGvtMCoaT5SY9uqNByjUTVH/QRjvpDiDo+48rmU+B748t4ilrjfxQZytrtHy8Yz5f6XRcmrbiZ2jlYI3abDFiBxQYIQvz90y0+q6XtFN/+h1HIDBK4bua6Ry78KyzALC5Mb8RYXkerb0FpHT1Qoxl60hD0KTo/MVgLpq6Evmir4BcxK0SzjDl1XQWOiN08td9R4bB0AdAimvydUmKXwZ36edowdEoP7ReKrJh6oWh75KWuAGPGDXibOyJWmq1ibpiik5AwrH7iLsWpr5jSs6cye7H99VtX6PiMIQJmjFNvCN9vyjzvJLGFzCzyGvKkQfoxtV/RxYfgCyl3hjVsXZ/Pv7ZD1mSznIEzz+ZRUDCj8og="
+    - secure: "bv3CmnHdtTaGohbHtbKQDw7Z4qawPF9zcxqQfJnW+/P7w7ETxFqMF/uEHfsbSMDuZ06Y26TC10IgS1ubevH9ATQawHxEpMZr7VsIaAV00tO0Yw9cklFtxL6laXFO9HODOKMCZZ73cpPqCXRRigKsG3+DGQmF61RmQWr41HhIFKsQf/LpFThDDgJ4ClvzhZ/54NlTB7rtrU7cXxihASmdpBdsv2MWs4vtvrTSrGUlftTm0bGm0TxLFcM9mpdBf++1r1JjvFvZ/DVr0tYBHiAQ+sUmdfoJ6yigLPSQTXsAazTpbDFHE+IwVEsmAalZToIr3I8/FqE4NJSPyrihsigmqf62LO4QSTw5BMcLaEh/QOTe5k+GJ7ZVM11ibXjKSlNvcCh6dTn5kAO7oy1mR6xOZAXZrgMwuHiClibXB/lcvNeKieWLw8mTcswYhLr5Wn6QvbrZNbHcorTFThwVxsjX8wr/VlFBxbTUifHKCGaDghmrA3yzWAL27X2EfAiCougMKeNDY2FeH2WKs1SY7bq8GAk3o6TvsDO5aj/yBWiUNwpd6xWTDE5SL9b5iy45+H0cdXjo3sM68c91+vVI+M3MOBRQpPk/2bW+hwQv8AqnM+USDLsdndjt/gfsmqElXSbuE8RaosmtI8DO7YYpcdUrvRqy9ugyxQcil5BAEeM9sFY="
 
 
 before_install:
@@ -23,5 +23,5 @@ script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker login -u=$DOCKERHUB_USER -p=$DOCKERHUB_PASSWORD &&
-      docker push $DOCKER_USER/$DOCKERHUB_REPO ;
+      docker push $DOCKERHUB_USER/$DOCKERHUB_REPO ;
     fi
