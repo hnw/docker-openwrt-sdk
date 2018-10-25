@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    - TAGS="15.05.1-ar71xx 17.01-ar71xx 17.01-ramips-mt7620 17.01-bcm53xx"
+    - TAGS="15.05.1-ar71xx 17.01-ar71xx 17.01-ramips-mt7620 17.01-bcm53xx 18.06-ar71xx 18.06-x86-64"
     - DOCKERHUB_USER=yhnw
     - DOCKERHUB_REPO=openwrt-sdk
     - secure: "bv3CmnHdtTaGohbHtbKQDw7Z4qawPF9zcxqQfJnW+/P7w7ETxFqMF/uEHfsbSMDuZ06Y26TC10IgS1ubevH9ATQawHxEpMZr7VsIaAV00tO0Yw9cklFtxL6laXFO9HODOKMCZZ73cpPqCXRRigKsG3+DGQmF61RmQWr41HhIFKsQf/LpFThDDgJ4ClvzhZ/54NlTB7rtrU7cXxihASmdpBdsv2MWs4vtvrTSrGUlftTm0bGm0TxLFcM9mpdBf++1r1JjvFvZ/DVr0tYBHiAQ+sUmdfoJ6yigLPSQTXsAazTpbDFHE+IwVEsmAalZToIr3I8/FqE4NJSPyrihsigmqf62LO4QSTw5BMcLaEh/QOTe5k+GJ7ZVM11ibXjKSlNvcCh6dTn5kAO7oy1mR6xOZAXZrgMwuHiClibXB/lcvNeKieWLw8mTcswYhLr5Wn6QvbrZNbHcorTFThwVxsjX8wr/VlFBxbTUifHKCGaDghmrA3yzWAL27X2EfAiCougMKeNDY2FeH2WKs1SY7bq8GAk3o6TvsDO5aj/yBWiUNwpd6xWTDE5SL9b5iy45+H0cdXjo3sM68c91+vVI+M3MOBRQpPk/2bW+hwQv8AqnM+USDLsdndjt/gfsmqElXSbuE8RaosmtI8DO7YYpcdUrvRqy9ugyxQcil5BAEeM9sFY="
